@@ -1,0 +1,76 @@
+%ifarch aarch64
+Target: aarch64-suse-linux
+%endif
+
+# our basic cross tool chain
+Required: cross-aarch64-gcc11
+Required: cross-aarch64-glibc
+Required: cross-aarch64-aaa_base
+OnlyNative: cross-aarch64-gcc11
+OnlyNative: cross-aarch64-aaa_base
+OnlyNative: makeinfo
+
+AlsoNative: qt6-base-common-devel
+AlsoNative: qt6-base-devel
+AlsoNative: qt6-base-private-devel
+AlsoNative: qt6-tools
+AlsoNative: qt6-tools-devel
+
+# temporary workaround to break cycle dep due to wrong provides
+Preinstall: update-alternatives
+Order: update-alternatives:cross-aarch64-gcc11
+
+Ignore: libncurses6:cross-aarch64-gcc11
+Ignore: cross-aarch64-gcc11:libncurses6
+
+# the checks are mostly not valid for cross build
+Support: !post-build-checks
+
+Prefer: -Mesa-libEGL-devel-32bit
+Prefer: -libgbm-devel-32bit
+Prefer: -libdrm-devel-32bit
+Prefer: -libudev-devel-32bit
+Prefer: -libglvnd-devel-32bit
+Prefer: -libX11-devel-32bit
+Prefer: -libX11-devel-32bit
+Prefer: -Mesa-libGLESv2-devel-32bit
+Prefer: -Mesa-libEGL-devel-32bit
+Prefer: -libX11-devel-32bit
+Prefer: -gdk-pixbuf-devel-32bit
+Prefer: -libX11-devel-32bit
+Prefer: -Mesa-libEGL-devel-32bit
+Prefer: -Mesa-libGL-devel-32bit
+Prefer: -libX11-devel-32bit
+Prefer: -Mesa-libEGL-devel-32bit
+Prefer: -libmount-devel-32bit
+Prefer: -postgresql13-devel-mini
+Prefer: -libblkid-devel-32bit
+Prefer: -cmake-mini
+
+Macros:
+# needed for build script, needs to be in sync with cross-*-aaa_base
+%cross_sysroot  /usr/%{_target_cpu}-suse-linux/sys-root
+
+%configure \
+  CFLAGS="${CFLAGS:-%optflags}" ; export CFLAGS ; \
+  CXXFLAGS="${CXXFLAGS:-%optflags}" ; export CXXFLAGS ; \
+  FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS ; \
+  %{_configure} --host=%{_host} --build=%{_arch}-suse-linux \\\
+        --program-prefix=%{?_program_prefix} \\\
+        --disable-dependency-tracking \\\
+        --prefix=%{_prefix} \\\
+        --exec-prefix=%{_exec_prefix} \\\
+        --bindir=%{_bindir} \\\
+        --sbindir=%{_sbindir} \\\
+        --sysconfdir=%{_sysconfdir} \\\
+        --datadir=%{_datadir} \\\
+        --includedir=%{_includedir} \\\
+        --libdir=%{_libdir} \\\
+        --libexecdir=%{_libexecdir} \\\
+        --localstatedir=%{_localstatedir} \\\
+        --sharedstatedir=%{_sharedstatedir} \\\
+        --mandir=%{_mandir} \\\
+        --infodir=%{_infodir} \\\
+        --disable-dependency-tracking
+:Macros
+
