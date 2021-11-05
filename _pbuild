@@ -3,16 +3,16 @@
     <arch>aarch64</arch>
     <config>sl15.3</config>
     <hostrepo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/simpleimage</hostrepo>
-    <hostrepo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/openSUSE_Leap_15.3</hostrepo>
+    <hostrepo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/15.3</hostrepo>
     <hostrepo>config:</hostrepo>
-    <repo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/openSUSE_Leap_15.3</repo>
+    <repo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/15.3</repo>
     <repo>config:</repo>
   </preset>
   <preset name="armv7hl">
     <config>sl15.3</config>
-    <hostrepo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/openSUSE_Leap_15.3</hostrepo>
+    <hostrepo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/15.3</hostrepo>
     <hostrepo>config:</hostrepo>
-    <repo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/openSUSE_Leap_15.3</repo>
+    <repo>https://download.opensuse.org/repositories/Geckito:/SDK:/Main/15.3</repo>
     <repo>config:</repo>
   </preset>
 </pbuild>
