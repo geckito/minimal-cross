@@ -27,8 +27,8 @@ Ignore: cross-aarch64-gcc11:libncurses6
 Ignore: rpmlint-mini rpmlint-Factory
 
 # the checks are mostly not valid for cross build
-#Support: !brp-check-suse
-#Support: !post-build-checks
+Support: !brp-check-suse
+Support: !post-build-checks
 
 Prefer: -Mesa-libEGL-devel-32bit
 Prefer: -libgbm-devel-32bit
