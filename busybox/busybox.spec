@@ -23,7 +23,7 @@ Summary:        Minimalist variant of UNIX utilities linked in a single executab
 License:        GPL-2.0-or-later
 Group:          System/Base
 URL:            http://www.busybox.net/
-#!RemoteAsset: d568681c91a85edc6710770cebc1e80e042ad74d305b5c2e6d57a5f3de3b8fbd
+#!RemoteAsset: sha256:d568681c91a85edc6710770cebc1e80e042ad74d305b5c2e6d57a5f3de3b8fbd
 Source:         http://busybox.net/downloads/%{name}-%{version}.tar.bz2
 Source1:        BusyBox.1
 Source2:        busybox.config
